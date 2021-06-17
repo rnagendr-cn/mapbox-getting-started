@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import routes from "./routes"
+import mapboxgl from "!mapbox-gl" // eslint-disable-line import/no-webpack-loader-syntax
+import "mapbox-gl/dist/mapbox-gl.css"
+
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        {routes.map(({ path, component }, i) => (
+          <Route key={i} exact path={path}>
+            {component}
+          </Route>
+        ))}
+      </Switch>
+    </Router>
+  )
 }
 
-export default App;
+export default App
