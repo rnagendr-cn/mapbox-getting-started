@@ -31,12 +31,25 @@ const CustomMarker = ({ classes }) => {
     })
     map.current.on("load", () => {
       geojson.features.forEach((marker) => {
-        var el = document.createElement("div")
-        el.className = classes.marker
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+          `<h3>${marker.properties.title}</h3>
+          <p>${marker.properties.description}</p>`
+        )
 
-        new mapboxgl.Marker(el)
+        // Default marker
+        const defaultMarker = new mapboxgl.Marker()
           .setLngLat(marker.geometry.coordinates)
+          .setPopup(popup)
           .addTo(map.current)
+
+        // Custom marker
+        // let el = document.createElement("div")
+        // el.className = classes.marker
+
+        // const customMarker = new mapboxgl.Marker(el)
+        //   .setLngLat(marker.geometry.coordinates)
+        //   .setPopup(popup)
+        //   .addTo(map.current)
       })
     })
   }, [])

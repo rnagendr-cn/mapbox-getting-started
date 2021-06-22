@@ -11,3 +11,7 @@ REACT_APP_MAPBOX_TOKEN=your-access-token-string
 ```
 
 4. `npm i` + `npm start`
+
+### API Reference
+
+https://docs.mapbox.com/mapbox-gl-js/api/#reading-this-documentation

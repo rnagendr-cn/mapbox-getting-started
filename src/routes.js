@@ -1,4 +1,12 @@
-import { Base, Basic, CustomMarker, FlyTo, RuntimeStyling } from "./components"
+import {
+  Base,
+  Basic,
+  CustomMarker,
+  FlyTo,
+  RuntimeStyling,
+  HoverEvent,
+  Playground,
+} from "./components"
 
 const routes = [
   {
@@ -25,6 +33,16 @@ const routes = [
     path: "/04",
     text: "Change the style of the map dynamically",
     component: <RuntimeStyling />,
+  },
+  {
+    path: "/05",
+    text: "Get data of hovered region / state",
+    component: <HoverEvent />,
+  },
+  {
+    path: "/playground",
+    text: "My map",
+    component: <Playground />,
   },
 ]
 
